@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+</head>
+
+<body>
+    <h3>EC2 Instances</h3>
+    <table class="table table-dark table-striped table-bordered table-hover">
+        <thead class="table-success text-dark">
+            <td>instance_id</td>
+            <td>instance_type</td>
+            <td>state</td>
+            <td>time</td>
+            <td>Action</td>
+        </thead>
+        <tbody>
+            {% for reservation in response %} {% for instance in
+            reservation['Instances'] %}
+
+            <tr>
+                <td>{{instance["InstanceId"]}}</td>
+                <td>{{instance["InstanceType"]}}</td>
+                <td>{{instance['State']['Name']}}</td>
+                <td>{{instance['LaunchTime']}}</td>
+                <td>
+                    <!-- <a href="/stop/{{instance["InstanceId"]}}">Stop</a>
+              <a href="/start/{{instance["InstanceId"]}}">Start</a>
+        
+             <a href="/terminate/{{instance["InstanceId"]}}">Terminate</a> -->
+                    <!-- <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Action
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="/stop/{{instance["InstanceId"]}}">Stop</a></li>
+    <li><a href="/start/{{instance["InstanceId"]}}">Start</a></li>
+    <li><a href="/terminate/{{instance["InstanceId"]}}">Terminate</a></li>
+    <li role="separator" class="divider"></li>
+
+  </ul>
+</div> -->
+
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/stop/{{instance["InstanceId"]}}">Stop</a>
+                            <a class="dropdown-item" href="/start/{{instance["InstanceId"]}}">Start</a>
+
+                            <a class="dropdown-item" href="/terminate/{{instance["InstanceId"]}}">Terminate</a>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            {% endfor %} {% endfor %}
+        </tbody>
+    </table>
+    <br />
+    <a href="/" class="btn btn-info" role="button">Go to Home page</a>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

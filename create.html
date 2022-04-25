@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/create_ec2" method="POST" class="btn btn-primary">
+      <table>
+        <tr>
+          <td>ImageId</td>
+          <td>
+            <input
+              type="text"
+              name="imageid"
+              id=""
+              placeholder="Enter ImageId"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>MinCount</td>
+          <td>
+            <input
+              type="number"
+              name="mincount"
+              id=""
+              placeholder="Enter MinCount"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>MaxCount</td>
+          <td>
+            <input
+              type="number"
+              name="maxcount"
+              id=""
+              placeholder="Enter MaxCount"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>InstanceType</td>
+          <td>
+            <input
+              type="text"
+              name="instancetype"
+              id=""
+              placeholder="Enter InsanceType"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="submit" class="btn btn-primary" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <h6 id="imageid">ami-013f17f36f8b1fefb</h6>
+    <h6>MinCount: Minimum number of EC2 instances to create</h6>
+    <h6>MaxCount: Maximum number of EC2 instances to create</h6>
+    <h6>InstanceType - eg:- t2.micro</h6>
+  </body>
+</html>
